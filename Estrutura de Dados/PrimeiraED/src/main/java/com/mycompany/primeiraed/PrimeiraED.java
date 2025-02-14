@@ -31,19 +31,19 @@ public class PrimeiraED {
             cheio();
 
             Object[] objetosexpandido = new Object[objetos.length];
-            
+
             for (int i = 0; i < posicao; i++) {
                 objetosexpandido[i] = objetos[i];
             }
             objetosexpandido[posicao] = objeto;
-            
+
             for (int i = posicao; i < totalDeObjetos; i++) {
                 objetosexpandido[i + 1] = objetos[i];
             }
-            
+
             objetos = objetosexpandido;
             totalDeObjetos++;
-            
+
             System.out.println(Arrays.toString(objetos));
             System.out.println(totalDeObjetos);
         }
@@ -76,6 +76,31 @@ public class PrimeiraED {
     }
 
     public void remove(int posicao) {
+        if (!posicaoValida(posicao)) {
+            System.err.println("índice inexistente.");
+            return;
+        }
+
+        if (!posicaoOcupada(posicao)) {
+            System.err.println("Não existe nada neste indice");
+            return;
+        }
+
+        Object[] objetosreduzidos = new Object[objetos.length];
+
+        for (int i = 0; i < posicao; i++) {
+            objetosreduzidos[i] = objetos[i];
+        }
+        for (int i = posicao; i < totalDeObjetos-1; i++) {
+            
+            objetosreduzidos[i] = objetos[i+1];
+        }
+
+        objetos = objetosreduzidos;
+        totalDeObjetos--;
+
+        System.out.println(Arrays.toString(objetos));
+        System.out.println(totalDeObjetos);
 
     }
 

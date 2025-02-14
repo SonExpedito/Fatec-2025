@@ -21,10 +21,12 @@ public class Main {
         primeiraED.getObjeto(10);
         primeiraED.getObjeto(9);
         primeiraED.getObjeto(2);
-      //  primeiraED.adiciona(9, 12);
+      // 
         
         primeiraED.adiciona(1, 4);
         
         primeiraED.contem(4);
+        primeiraED.remove(1);
+         primeiraED.adiciona(9, 12);
     }
 }
