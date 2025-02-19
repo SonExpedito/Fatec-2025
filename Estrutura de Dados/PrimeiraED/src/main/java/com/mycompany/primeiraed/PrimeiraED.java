@@ -23,7 +23,7 @@ public class PrimeiraED {
 
         if (!posicaoOcupada(posicao)) {
             objetos[posicao] = objeto;
-            System.out.print("Objeto adicionado com Suecsso");
+            System.out.print("Objeto adicionado com Sucesso");
             System.out.println(Arrays.toString(objetos));
             totalDeObjetos++;
 
@@ -45,18 +45,23 @@ public class PrimeiraED {
             totalDeObjetos++;
 
             System.out.println(Arrays.toString(objetos));
-            System.out.println(totalDeObjetos);
+            tamanho();
         }
     }
 
     public void adiciona(Object objeto) {
-        if (totalDeObjetos == objetos.length) {
-            System.out.println("Vetor esta completamente preenchido");
+        if (totalDeObjetos >= objetos.length) {
+            System.out.println("O Vetor esta completamente preenchido");
 
         } else {
-            objetos[totalDeObjetos] = objeto;
-            totalDeObjetos++;
-            System.out.println(Arrays.toString(objetos));
+            for (int i = 0; i < objetos.length; i++) {
+                if (!posicaoOcupada(i)) {
+                    objetos[i] = objeto;
+                    totalDeObjetos++;
+                    System.out.println(Arrays.toString(objetos));
+                    break;
+                }
+            }
         }
 
     }
@@ -71,7 +76,6 @@ public class PrimeiraED {
     private boolean posicaoValida(int posicao) {
 
         return posicao >= 0 && posicao < objetos.length;
-//Retorna Válido apenas se existir, passando False automáticamente
 
     }
 
@@ -86,21 +90,16 @@ public class PrimeiraED {
             return;
         }
 
-        Object[] objetosreduzidos = new Object[objetos.length];
-
-        for (int i = 0; i < posicao; i++) {
-            objetosreduzidos[i] = objetos[i];
+        for (int i = posicao; i < totalDeObjetos - 1; i++) {
+            objetos[i] = objetos[i + 1];
         }
-        for (int i = posicao; i < totalDeObjetos-1; i++) {
-            
-            objetosreduzidos[i] = objetos[i+1];
-        }
+        objetos[totalDeObjetos - 1] = null;
 
-        objetos = objetosreduzidos;
+    
         totalDeObjetos--;
 
         System.out.println(Arrays.toString(objetos));
-        System.out.println(totalDeObjetos);
+        tamanho();
 
     }
 
@@ -108,7 +107,7 @@ public class PrimeiraED {
         for (int i = 0; i < objetos.length; i++) {
 
             if (objeto.equals(objetos[i])) {
-                System.err.println("O objeto existe no indice: " + i);
+                System.err.println("O objeto " + objeto + " existe no indice: " + i);
                 return true;
             }
 
@@ -119,19 +118,19 @@ public class PrimeiraED {
 
     public Object getObjeto(int posicao) {
         if (!posicaoValida(posicao)) {
-            System.err.println("Este índice não existe no vetor.");
+            System.err.println("Este indice nao existe no vetor.");
             return null;
         }
         if (!posicaoOcupada(posicao)) {
-            System.err.println("Não existe nada nesta posição.");
+            System.err.println("Nao existe nada nesta posicao.");
             return null;
         }
-        System.err.println(objetos[posicao]);
+        System.err.println("O Item referente ao indice " + posicao + " e o objeto: " + objetos[posicao]);
         return objetos[posicao];
     }
 
     public int tamanho() {
-        System.err.println(totalDeObjetos);
+        System.err.println("O total de objetos e: " + totalDeObjetos);
         return totalDeObjetos;
     }
 

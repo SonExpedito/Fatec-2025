@@ -14,19 +14,19 @@ public class Main {
 
     public static void main(String[] args) {
         // Preenchendo Vetor
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <=9; i++) {
             primeiraED.adiciona(i);
         }
 
         primeiraED.getObjeto(10);
         primeiraED.getObjeto(9);
         primeiraED.getObjeto(2);
-      // 
-        
+        // 
+
         primeiraED.adiciona(1, 4);
-        
+
         primeiraED.contem(4);
         primeiraED.remove(1);
-         primeiraED.adiciona(9, 12);
+        primeiraED.adiciona(9, 11);
     }
 }
