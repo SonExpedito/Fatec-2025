@@ -13,6 +13,8 @@ public class Main {
 
         segunda.getNome(30);
         segunda.remove("Ana");
+        segunda.adicionar("Alex");
+        segunda.adicionar("#");
 
     }
 }

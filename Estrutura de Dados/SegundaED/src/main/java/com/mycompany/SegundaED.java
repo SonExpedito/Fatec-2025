@@ -14,6 +14,8 @@ public class SegundaED {
             System.err.println("Não foi digitado nada, ou não se encaixa no alfabeto");
             return;
         }
+        
+        if (validarNome(nome))
 
         if (!posicaoOcupada(posicao)) {
             nomes[posicao] = nome;
@@ -35,6 +37,10 @@ public class SegundaED {
 
     private boolean posicaoValida(int posicao) {
         return posicao >= 0 && posicao < nomes.length;
+    }
+    
+    public boolean validarNome(String nome){
+        return nome != null && !nome.isBlank();
     }
 
     public Object getNome(int posicao) {
@@ -82,9 +88,12 @@ public class SegundaED {
     }
 
     public int getIndice(String nome) {
+          if (!validarNome(nome)){
+            return -1;
+        }
         char primeiraletra = nome.charAt(0);
         primeiraletra = Character.toLowerCase(primeiraletra);
-
+       
         return switch (primeiraletra) {
             case 'a' -> 0;
             case 'b' -> 1;
