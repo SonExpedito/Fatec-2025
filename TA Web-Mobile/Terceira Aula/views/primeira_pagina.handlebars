@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+</ul>
+</div>
+</nav>
+
+
+
+<br>
+    <h2>Cadastrar Usuario - Agendamento e etc</h2>
+    <br>
+    <form action="/adicionar" method ="post">
+        @csrf
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" name="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Nome</label>
+    <input type="text" name="Nome" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Nascimento</label>
+    <input type="date" name="Nascimento" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Senha</label>
+    <input type="password" name="Senha" class="form-control" id="exampleInputPassword1">
+  </div>
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Telefone</label>
+    <input type="text" name="Telefone" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <label for="exampleInputPassword1" class="form-label">Origem</label>
+<select class="form-select" name="Origem" aria-label="Default select example">
+  <option selected>Celular</option>
+  <option value="1">Fixo</option>
+  <option value="2">Telefone</option>
+  <option value="3">Outros</option>
+</select>
+<br>
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Feadback</label>
+  <textarea class="form-control" name="Feedback" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+<br>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
